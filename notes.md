@@ -53,3 +53,38 @@ where:
 - N is the number of examples in D.
 
 Although MSE is commonly-used in machine learning, it is neither the only practical loss function nor the best loss function for all circumstances.
+
+Reducing Loss:
+
+learning rate = size of steps towards lowest loss point(negative gradient).
+
+gradient descent = start somewhere and take steps until we reach negative gradient. Convex = bowl, most NNs are not convex.
+Shape is more like egg crate, many possible minimum values - initialization matters for efficiency.
+
+stochastic Gradient Descent = 1 example at a time
+
+Mini-Batch(real world) Gradient Descent = batches of 10-100 exmaples, Loss and Gradients are averaged over the batch.
+
+**Figure 1. An iterative approach to training a model.**
+
+We'll use this same iterative approach throughout the Machine Learning Crash Course, detailing various complications, particularly within that stormy cloud labeled "Model (Prediction Function)." Iterative strategies are prevalent in machine learning, primarily because they scale so well to large data sets.
+
+The "model" takes one or more features as input and returns one prediction as output. To simplify, consider a model that takes one feature (x1) and returns one prediction (y′):
+
+y′=b+m1x1
+
+What initial values should we set for b and w1? For linear regression problems, it turns out that the starting values aren't important. We could pick random values, but we'll just take the following trivial values instead:
+
+- b = 0
+- w1 = 0
+
+Suppose that the first feature value is 10. Plugging that feature value into the prediction function yields:
+
+y′=0+0⋅10=0
+
+The "Compute Loss" part of the diagram is the [loss function](https://developers.google.com/machine-learning/crash-course/descending-into-ml/training-and-loss) that the model will use. Suppose we use the squared loss function. The loss function takes in two input values:
+
+- y′: The model's prediction for features _x_
+- y: The correct label corresponding to features _x_ .
+
+At last, we've reached the "Compute parameter updates" part of the diagram. It is here that the machine learning system examines the value of the loss function and generates new values for b and w1. For now, just assume that this mysterious box devises new values and then the machine learning system re-evaluates all those features against all those labels, yielding a new value for the loss function, which yields new parameter values. And the learning continues iterating until the algorithm discovers the model parameters with the lowest possible loss. Usually, you iterate until overall loss stops changing or at least changes extremely slowly. When that happens, we say that the model has **converged** .
