@@ -88,3 +88,5 @@ The "Compute Loss" part of the diagram is the [loss function](https://developers
 - y: The correct label corresponding to features _x_ .
 
 At last, we've reached the "Compute parameter updates" part of the diagram. It is here that the machine learning system examines the value of the loss function and generates new values for b and w1. For now, just assume that this mysterious box devises new values and then the machine learning system re-evaluates all those features against all those labels, yielding a new value for the loss function, which yields new parameter values. And the learning continues iterating until the algorithm discovers the model parameters with the lowest possible loss. Usually, you iterate until overall loss stops changing or at least changes extremely slowly. When that happens, we say that the model has **converged** .
+
+Learning rate is a Scalar IE; starting point 2.5 learning rate 0.1 next point is 0.025 from 2.5 -> 2.475 -> 0.02475 -> 2.451025, etc.
