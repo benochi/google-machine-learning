@@ -35,4 +35,21 @@ more sop[histicated models have more weights, IE y1=b + w1x1 + w2x2 +w3x3
 
 Training and loss:
 
-In supervised learning, a machine learning algorithm builds a model by examining many examples and attempting to find a model that minimizes loss; this process is called **empirical risk minimization** .
+In supervised learning, a machine learning algorithm builds a model by examining many examples and attempting to find a model that minimizes loss; this process is called **empirical risk minimization**.
+
+Loss is the penalty for a bad prediction. That is, **loss** is a number indicating how bad the model's prediction was on a single example. If the model's prediction is perfect, the loss is zero; otherwise, the loss is greater. The goal of training a model is to find a set of weights and biases that have _low_ loss, on average, across all examples. For example, Figure 3 shows a high loss model on the left and a low loss model on the right. Note the following about the figure:
+
+**Mean square error** ( **MSE** ) is the average squared loss per example over the whole dataset. To calculate MSE, sum up all the squared losses for individual examples and then divide by the number of examples:
+
+mse= 1/n E(y-prediction(x))^2 E=(x,y)epsilonD
+
+where:
+
+- (x,y) is an example in which
+  - x is the set of features (for example, chirps/minute, age, gender) that the model uses to make predictions.
+  - y is the example's label (for example, temperature).
+- prediction(x) is a function of the weights and bias in combination with the set of features x.
+- D is a data set containing many labeled examples, which are (x,y) pairs.
+- N is the number of examples in D.
+
+Although MSE is commonly-used in machine learning, it is neither the only practical loss function nor the best loss function for all circumstances.
